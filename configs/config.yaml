@@ -11,11 +11,7 @@ training:
   output_dir: models/bert-sentiment
 
 data:
-  dataset: amazon_reviews_multi
-  language: 
-    - en
-    - ja
-    - zh
+  dataset: yelp_review_full
   test_size: 0.15
   seed: 42
 
