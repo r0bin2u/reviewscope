@@ -1,0 +1,21 @@
+model:
+  name: bert-base_multilingual_cased
+  num_labels: 3
+  max_length: 128
+
+training:
+  batch_size: 32
+  learning_rate: 2.0e-5
+  num_epoochs: 3
+  warmup_ratio: 0.1
+  output_dir: models/bert-sentiment
+
+data:
+  dataset: amazon_reviews_multi
+  language: 
+    - en
+    - ja
+    - zh
+  test_size: 0.15
+  seed: 42
+
