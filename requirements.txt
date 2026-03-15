@@ -1,4 +1,5 @@
 torch>=2.0
-transformers>=4.35
-datasets>=2.14.7
+transformers>=5.3
+datasets>=4.7
+accelerate>=1.1.0
 pyyaml>=6.0
