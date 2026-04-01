@@ -7,7 +7,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY configs/ configs/
 COPY src/ src/
-COPY models/ models/
 
 EXPOSE 8000
 
