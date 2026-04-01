@@ -1,0 +1,41 @@
+[project]
+name = "reviewscope"
+version = "1.0.1"
+description = "Multilingual review sentiment classifier powered by BERT"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "r0bin2u" }]
+
+dependencies = [
+    "torch>=2.0",
+    "transformers>=5.3",
+    "datasets>=4.7",
+    "accelerate>=1.1.0",
+    "pyyaml>=6.0",
+    "fastapi>=0.104",
+    "uvicorn>=0.24",
+    "pydantic>=2.5",
+    "mlflow>=2.12",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "httpx>=0.25",
+    "ruff>=0.4",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP"]
+
+[tool.ruff.format]
+quote-style = "double"
