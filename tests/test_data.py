@@ -1,6 +1,6 @@
-import pytest
-from unittest.mock import patch, MagicMock
-from src.data import load_config, star_to_label, load_review_data
+from unittest.mock import MagicMock, patch
+
+from src.data import load_config, load_review_data, star_to_label
 
 
 class TestStarToLabel:

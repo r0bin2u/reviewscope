@@ -1,7 +1,8 @@
-import pytest
+from unittest.mock import MagicMock, patch
+
 import torch
-from unittest.mock import patch, MagicMock
-from src.model import ReviewClassifier, LABEL_MAP
+
+from src.model import LABEL_MAP, ReviewClassifier
 
 
 class TestLabelMap:
@@ -18,7 +19,7 @@ class TestReviewClassifier:
     @patch("src.model.AutoModelForSequenceClassification")
     @patch("src.model.AutoTokenizer")
     def test_init_loads_model_and_tokenizer(self, mock_tok_cls, mock_model_cls):
-        classifier = ReviewClassifier("fake-path", device="cpu")
+        _classifier = ReviewClassifier("fake-path", device="cpu")
         mock_tok_cls.from_pretrained.assert_called_once_with("fake-path")
         mock_model_cls.from_pretrained.assert_called_once_with("fake-path")
 
@@ -28,7 +29,7 @@ class TestReviewClassifier:
         mock_model = MagicMock()
         mock_model.to.return_value = mock_model
         mock_model_cls.from_pretrained.return_value = mock_model
-        classifier = ReviewClassifier("fake-path", device="cpu")
+        _classifier = ReviewClassifier("fake-path", device="cpu")
         mock_model.to.assert_called_once_with("cpu")
         mock_model.eval.assert_called_once()
 

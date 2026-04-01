@@ -1,13 +1,12 @@
-Ciimport pytest
-from unittest.mock import MagicMock, patch
+import pytest
 from fastapi.testclient import TestClient
 
 
 @pytest.fixture
 def client(mock_classifier):
     """Create a FastAPI test client with mocked model dependency."""
-    from src.api.main import app
     from src.api.dependencies import get_model
+    from src.api.main import app
 
     app.dependency_overrides[get_model] = lambda: mock_classifier
     yield TestClient(app)
