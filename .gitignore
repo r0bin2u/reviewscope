@@ -3,6 +3,10 @@ models/
 
 # MLflow
 mlruns/
+mlflow.db
+*.db
+*.sqlite
+*.sqlite3
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
